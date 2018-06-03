@@ -11,6 +11,8 @@ defmodule Automigrate do
     module = Module.concat([repo, Migrations, name])
     result = diff(repo, schema)
 
+    IO.inspect result
+
     if result != :noop do
       inner = migration(result)
       contents =
