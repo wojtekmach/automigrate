@@ -6,6 +6,7 @@ defmodule AutomigrateTest do
     :ok
   end
 
-  test "sanity" do
+  test "automigrate" do
+    assert Automigrate.diff(TestRepo, Post) == {:create_table, "posts", [id: :id, title: :string]}
   end
 end
